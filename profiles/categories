@@ -1,4 +1,5 @@
 base-targets
 demo-targets
 product-targets
+test-targets
 unstable-targets
