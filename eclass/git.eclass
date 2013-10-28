@@ -158,7 +158,7 @@ function git__get_repo_uri() {
 git_fetch() {
 
 	local EGIT_CLONE_DIR
-	if [[ -n "${EGIT_REV%%:*}" && `echo ${EGIT_REV:6}` == "" ]]; then 
+	if [[ -n "${EGIT_REV%%:*}" && `echo ${EGIT_REV:6}` == "" ]]; then
 		die "${EGIT}: EGIT_REV needs at least 7 chars."
 	fi
 
@@ -271,6 +271,7 @@ git_fetch() {
 
 		git clone -q -n "${CLONE_DIR}" "${S}"
 		cd "${S}"
+		git config remote.origin.url "${repo_uri}"
 		git checkout -q "${REV}"
 	else
 		einfo "Copying sources to ${S}"
